@@ -18,7 +18,7 @@
             --curve: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: initial; }
         body { 
             background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; 
@@ -298,7 +298,10 @@
                 e.preventDefault(); return false;
             }
         });
-        setInterval(() => { console.clear(); (function() { debugger; })(); }, 1000);
+
+        // Activate Custom Cursor ONLY if JS is running
+        document.documentElement.style.cursor = 'none';
+        document.querySelectorAll('a, button, .modal-trigger').forEach(el => el.style.cursor = 'none');
     </script>
 </body>
 </html>

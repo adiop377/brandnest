@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrandNest Studios — Architectural Digital Presence</title>
+    <meta name="description" content="We help businesses launch and grow online with websites that convert, Instagram content that stops the scroll, and 3D visuals. Based in NCR. Built for everywhere.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Unbounded:wght@800;900&display=swap');
 
@@ -109,6 +110,7 @@
             .nav-links { display: none; }
             .hero-title { font-size: 3.2rem; white-space: normal; line-height: 0.95; }
             .hero-p { font-size: 0.85rem; margin-top: 1rem; opacity: 0.7; }
+            section#hero { min-height: 100vh; padding: 10rem 5% 2rem 5%; justify-content: flex-start; }
             .btn-circle { width: 120px; height: 120px; font-size: 0.65rem; }
             .orb-p { width: 300px; height: 300px; }
             .orb-b { width: 200px; height: 200px; }
@@ -125,6 +127,110 @@
             .hero-title { font-size: 2.2rem; }
             .hero { padding: 0 4%; }
         }
+        /* FORM STYLING */
+        .contact-form {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            text-align: left;
+        }
+        .form-group { position: relative; }
+        .form-group.full { grid-column: span 2; }
+        
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: 0.4s var(--curve);
+            outline: none;
+        }
+        
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+        }
+        
+        .form-label {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            pointer-events: none;
+            transition: 0.4s var(--curve);
+        }
+        
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+            top: -0.8rem;
+            left: 0.5rem;
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        select.form-input { appearance: none; cursor: pointer; }
+        
+        /* Fix for invisible dropdown text */
+        .form-input option {
+            background: #000c0d;
+            color: #fff;
+            padding: 1rem;
+        }
+        
+        .submit-btn {
+            grid-column: span 2;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: 0.4s var(--curve);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+            background: #fff;
+            color: #000;
+        }
+
+        .success-message {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .success-message h3 { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; }
+        .success-message p { color: var(--text-dim); font-size: 1.2rem; }
+
+        textarea.form-input { min-height: 120px; resize: none; }
+
+        @media (max-width: 768px) {
+            .contact-form { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+            .submit-btn { grid-column: span 1; }
+        }
+
         /* SOURCE PROTECTION */
         * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none; }
     </style>
@@ -141,25 +247,14 @@
         <div class="noise-bg"></div>
     </div>
 
-    <!-- CONTACT MODAL -->
-    <div id="contact-modal">
-        <div class="close-trigger">CLOSE // X</div>
-        <div class="modal-inner">
-            <h2 class="reveal">PARTNER WITH US</h2>
-            <p style="color:var(--text-dim); font-size: 1.3rem; margin-bottom: 4rem;">We accept only 2 high-yield projects per quarter. Connect to secure your architecture.</p>
-            <a href="mailto:core@brandnest.io" style="font-size: clamp(1.5rem, 5vw, 3rem); color:#fff; text-decoration:none; font-weight:900; border-bottom: 3px solid var(--accent);">CORE@BRANDNEST.IO</a>
-            <div style="margin-top: 5rem; display: flex; justify-content: center; gap: 4rem; font-size: 0.9rem; font-weight: 800; opacity: 0.5;">
-                <a href="#" style="color:#fff; text-decoration:none;">TWITTER</a>
-                <a href="#" style="color:#fff; text-decoration:none;">INSTAGRAM</a>
-                <a href="#" style="color:#fff; text-decoration:none;">DRIBBBLE</a>
-            </div>
-        </div>
-    </div>
 
     <nav>
-        <a href="#" class="logo">BrandNest</a>
-        <div style="display:flex; align-items:center; gap:0.8rem; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; opacity: 0.8;">
-            <span class="status-dot" style="width:8px; height:8px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; animation: pulse 2s infinite;"></span> STATUS: OPEN
+        <a href="index.html" class="logo">BrandNest</a>
+        <div style="display: flex; gap: 3rem; align-items: center;">
+            <a href="contact.html" style="text-decoration: none; color: #fff; font-size: 0.70rem; font-weight: 800; letter-spacing: 0.2em; opacity: 0.6; transition: 0.3s; text-transform: uppercase;">CONNECT</a>
+            <div style="display:flex; align-items:center; gap:0.8rem; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; opacity: 0.8;">
+                <span class="status-dot" style="width:8px; height:8px; background:#10b981; border-radius:50%; box-shadow:0 0 10px #10b981; animation: pulse 2s infinite;"></span> STATUS: OPEN
+            </div>
         </div>
 
         <style>
@@ -173,45 +268,209 @@
 
     <section id="hero">
         <h1 class="hero-title">
-            <span>DIGITAL</span><br>
-            <span class="gradient-text">EXPERIENCES</span>
+            Your Brand.<br>
+            Online.<br>
+            <span class="gradient-text">Unforgettable.</span>
         </h1>
-        <p class="hero-p">Architectural digital assets and strategic Meta distribution for high-growth enterprise brands. Built for speed, scaled for global impact.</p>
+        <p class="hero-p">We help businesses launch and grow online — with websites that convert, Instagram content that stops the scroll, and 3D visuals that make people stop and stare. Based in NCR. Built for everywhere.</p>
         
-        <div style="margin-top: 8rem;">
-            <a href="#" class="btn-circle modal-trigger">Start Project</a>
+        <div class="hero-btn-container" style="margin-top: 8rem;">
+            <a href="contact.html" class="btn-circle">Start Project</a>
+        </div>
+        <style>
+            @media (max-width: 768px) { .hero-btn-container { margin-top: 4rem !important; } }
+        </style>
+    <section id="about" style="padding: 5rem 5% 10rem 5%;">
+        <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 4rem;">About <span style="color:var(--accent);">Us.</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6rem 0;">
+            <div class="stat-item reveal">
+                <span class="card-tag">Execution</span>
+                <h2 style="font-size: clamp(3rem, 6vw, 5rem); margin-top: 1rem;">20<span style="color:var(--accent);">+</span></h2>
+                <p style="color:var(--text-dim); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-top: 1rem;">Projects Completed</p>
+            </div>
+            <div class="stat-item reveal">
+                <span class="card-tag">Partnerships</span>
+                <h2 style="font-size: clamp(3rem, 6vw, 5rem); margin-top: 1rem;">14</h2>
+                <p style="color:var(--text-dim); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-top: 1rem;">Clients Onboarded</p>
+            </div>
+            <div class="stat-item reveal">
+                <span class="card-tag">Legacy</span>
+                <h2 style="font-size: clamp(3rem, 6vw, 5rem); margin-top: 1rem;">2<span style="color:var(--accent);">+</span></h2>
+                <p style="color:var(--text-dim); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-top: 1rem;">Years of Experience</p>
+            </div>
         </div>
     </section>
 
-    <section id="projects" style="padding: 15rem 5%;">
-        <div class="card-tag">Case Studies</div>
-        <h2 style="font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 5rem;">High Velocity<br><span style="color:var(--accent);">Outputs.</span></h2>
+    <section id="services" style="padding: 10rem 5%;">
+        <div class="card-tag">Capabilities</div>
+        <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 5rem;">What <span class="gradient-text">We Do.</span></h2>
+        
         <div class="grid-container">
-            <div class="card reveal" style="grid-column: span 1;">
-                <span class="card-tag">Performance</span>
-                <h3>High-Yield Nodes</h3>
-                <p>Infrastructures that maintain 99.9% uptime under extreme traffic loads. Optimized for conversion density.</p>
+            <div class="card reveal">
+                <span class="card-tag">01 // Engineering</span>
+                <h3>Websites</h3>
+                <p>We design and build fast, clean websites that represent your brand professionally and turn visitors into customers.</p>
             </div>
-            <div class="card reveal" style="grid-column: span 1;">
-                <span class="card-tag">Distribution</span>
-                <h3>Scale Mechanics</h3>
-                <p>Proprietary algorithms for Meta and TikTok distribution that guarantee a 5.2x average ROAS index.</p>
+            <div class="card reveal">
+                <span class="card-tag">02 // Social</span>
+                <h3>Social Media Design</h3>
+                <p>From Instagram posts to full content kits — we create graphics that match your brand and keep your feed looking sharp.</p>
+            </div>
+            <div class="card reveal">
+                <span class="card-tag">03 // Visuals</span>
+                <h3>3D & Visual Design</h3>
+                <p>Product renders, 3D scenes, and visuals that make your brand look premium — even before you've spent big on marketing.</p>
+            </div>
+            <div class="card reveal">
+                <span class="card-tag">04 // Growth</span>
+                <h3>Meta Ads</h3>
+                <p>Strategic paid media distribution across Instagram and Facebook, optimized for high ROAS and sustainable scaling.</p>
             </div>
         </div>
+    </section>
+
+
+
+    <section id="testimonials" style="padding: 10rem 0; overflow: hidden; background: rgba(168, 85, 247, 0.02);">
+        <div style="padding: 0 5%; margin-bottom: 4rem;">
+            <h2 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem;">Client <span style="color:var(--accent);">Feedback.</span></h2>
+            <p style="color: var(--text-dim); font-size: 1.1rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">Strategic Transmissions</p>
+        </div>
+
+        <div class="marquee-container" style="display: flex; gap: 2rem; padding: 2rem 0; animation: scroll 80s linear infinite;">
+            <div class="testimonial-card">
+                <p>"The pixelated portfolio BrandNest built for me is a masterpiece. It perfectly captures my vibe as a game developer and stands out."</p>
+                <div class="client-info"><strong>VISHAL SHIKHAR</strong><span>GAME DEVELOPER</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"BrandNest transformed our digital presence. Scaling to 10k orders was seamless."</p>
+                <div class="client-info"><strong>ALEX R.</strong><span>CEO, FLUX</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"BrandNest delivered an exceptional platform for our insurance business. The team is extremely happy with the professional results."</p>
+                <div class="client-info"><strong>SANTOSH SINHA</strong><span>CEO, ARADHYA LIFE SOLUTIONS</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The 3D renders for our ethnic wear collection were game-changing. High-end work."</p>
+                <div class="client-info"><strong>ROHAN MEHTA</strong><span>AURA ETHNIC</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their website optimization worked wonders for our conversion rate. Legit results."</p>
+                <div class="client-info"><strong>ANJALI SHARMA</strong><span>FOUNDER, GLOWUP</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The Meta ads strategy for our Bangalore startup was on point. Consistent lead flow."</p>
+                <div class="client-info"><strong>VIKRAM SINGH</strong><span>V-TECH SOLUTIONS</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Stunning social media designs. They really understand the modern Indian aesthetic."</p>
+                <div class="client-info"><strong>KAVITA IYER</strong><span>URBAN NEST</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Best agency for 3D product visuals. Made our packaging look world-class."</p>
+                <div class="client-info"><strong>ISHAN MALHOTRA</strong><span>BREW & BLEND</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The speed of delivery and quality of websites is unmatched. Highly recommended."</p>
+                <div class="client-info"><strong>SAMEER KHAN</strong><span>E-COM ENTREPRENEER</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their 3D visuals made our brand look premium even before we spent big on ads."</p>
+                <div class="client-info"><strong>PRIYA DASH</strong><span>D2C BRAND OWNER</span></div>
+            </div>
+
+            <!-- Duplicate for infinite scroll -->
+            <div class="testimonial-card">
+                <p>"The pixelated portfolio BrandNest built for me is a masterpiece. It perfectly captures my vibe as a game developer and stands out."</p>
+                <div class="client-info"><strong>VISHAL SHIKHAR</strong><span>GAME DEVELOPER</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"BrandNest transformed our digital presence. Scaling to 10k orders was seamless."</p>
+                <div class="client-info"><strong>ALEX R.</strong><span>CEO, FLUX</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"BrandNest delivered an exceptional platform for our insurance business. The team is extremely happy with the professional results."</p>
+                <div class="client-info"><strong>SANTOSH SINHA</strong><span>CEO, ARADHYA LIFE SOLUTIONS</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The 3D renders for our ethnic wear collection were game-changing. High-end work."</p>
+                <div class="client-info"><strong>ROHAN MEHTA</strong><span>AURA ETHNIC</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their website optimization worked wonders for our conversion rate. Legit results."</p>
+                <div class="client-info"><strong>ANJALI SHARMA</strong><span>FOUNDER, GLOWUP</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The Meta ads strategy for our Bangalore startup was on point. Consistent lead flow."</p>
+                <div class="client-info"><strong>VIKRAM SINGH</strong><span>V-TECH SOLUTIONS</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Stunning social media designs. They really understand the modern Indian aesthetic."</p>
+                <div class="client-info"><strong>KAVITA IYER</strong><span>URBAN NEST</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Best agency for 3D product visuals. Made our packaging look world-class."</p>
+                <div class="client-info"><strong>ISHAN MALHOTRA</strong><span>BREW & BLEND</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The speed of delivery and quality of websites is unmatched. Highly recommended."</p>
+                <div class="client-info"><strong>SAMEER KHAN</strong><span>E-COM ENTREPRENEER</span></div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their 3D visuals made our brand look premium even before we spent big on ads."</p>
+                <div class="client-info"><strong>PRIYA DASH</strong><span>D2C BRAND OWNER</span></div>
+            </div>
+        </div>
+
+        <style>
+            .marquee-container { width: max-content; }
+            .marquee-container:hover { animation-play-state: paused !important; cursor: pointer; }
+            .testimonial-card {
+                width: 450px;
+                background: var(--glass);
+                border: 1px solid var(--border);
+                padding: 3rem;
+                border-radius: 30px;
+                flex-shrink: 0;
+                transition: 0.4s;
+            }
+            .testimonial-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.05); }
+            .testimonial-card p { font-size: 1.1rem; line-height: 1.6; font-weight: 500; margin-bottom: 2rem; color: #fff; }
+            .client-info { display: flex; flex-direction: column; gap: 0.3rem; }
+            .client-info strong { font-family: 'Unbounded', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); }
+            .client-info span { font-size: 0.7rem; color: var(--text-dim); font-weight: 700; }
+
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-450px * 10 - 2rem * 10)); }
+            }
+
+            @media (max-width: 768px) {
+                .testimonial-card { width: 330px; padding: 2rem; }
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(calc(-330px * 10 - 2rem * 10)); }
+                }
+            }
+        </style>
     </section>
 
     <section id="philosophy" style="padding: 15rem 10%; background: rgba(255,255,255,0.02); text-align: center; border-radius: 100px 100px 0 0;">
         <div class="card-tag">Our Philosophy</div>
         <h2 style="font-size: clamp(2.5rem, 8vw, 6rem); line-height: 0.9;">We Engineer<br><span class="gradient-text">Brand Gravity.</span></h2>
         <p style="color:var(--text-dim); max-width: 800px; margin: 4rem auto; font-size: 1.5rem; line-height: 1.6;">Design is not about aesthetics; it's about structural integrity. We build systems that pull customers toward your core value naturally.</p>
-        <a href="#" class="btn-circle modal-trigger" style="margin: 4rem auto;">Connect Core</a>
+        
+        <div style="margin-top: 4rem;">
+            <a href="contact.html" class="btn-circle">Connect Core</a>
+        </div>
     </section>
 
+
     <footer>
-        <div style="font-size: 0.9rem; font-weight: 900; letter-spacing: -0.02em;">BRANDNEST © 2026</div>
+        <div style="font-size: 0.9rem; font-weight: 900; letter-spacing: -0.02em;">BRANDNEST © 2024</div>
         <div style="text-align: right; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;">
-            <p><a href="#" style="color:#fff; text-decoration:none; margin-left: 2rem;">X</a> <a href="#" style="color:#fff; text-decoration:none; margin-left: 2rem;">INSTAGRAM</a> <a href="#" style="color:#fff; text-decoration:none; margin-left: 2rem;">LINKEDIN</a></p>
-            <p style="margin-top: 1.5rem; opacity: 0.3;">NCR BASED // OPERATING GLOBALLY</p>
+            <p><a href="https://www.instagram.com/brndnest.studios?igsh=dHJhdzgzeHNrM2Q=" target="_blank" style="color:#fff; text-decoration:none; margin-left: 2rem;">INSTAGRAM</a></p>
+
         </div>
     </footer>
 
@@ -234,24 +493,6 @@
             });
         });
 
-        // Contact Modal
-        const modal = document.getElementById('contact-modal');
-        const triggers = document.querySelectorAll('.modal-trigger');
-        const closer = document.querySelector('.close-trigger');
-
-        triggers.forEach(t => {
-            t.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.style.display = 'flex';
-                gsap.from('.modal-inner', { y: 100, opacity: 0, duration: 1.2, ease: "power4.out" });
-            });
-        });
-
-        closer.addEventListener('click', () => {
-            gsap.to('.modal-inner', { y: -50, opacity: 0, duration: 0.8, ease: "power4.in", onComplete: () => {
-                modal.style.display = 'none';
-            }});
-        });
 
         // Star Engine
         const canvas = document.getElementById('stars');
@@ -288,10 +529,12 @@
             gsap.from(el, { y: 100, opacity: 0, duration: 1.5, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 95%" } });
         });
 
+
         // Hover
-        document.querySelectorAll('a, button, .modal-trigger').forEach(el => {
+        document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => gsap.to('#cursor-follower', { scale: 1.8, background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.1)" }));
             el.addEventListener('mouseleave', () => gsap.to('#cursor-follower', { scale: 1, background: "transparent", borderColor: "rgba(255,255,255,0.2)" }));
+        });
         // Security Shield
         document.addEventListener('keydown', e => {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) || (e.ctrlKey && ['U','S','C'].includes(e.key))) {
@@ -301,7 +544,7 @@
 
         // Activate Custom Cursor ONLY if JS is running
         document.documentElement.style.cursor = 'none';
-        document.querySelectorAll('a, button, .modal-trigger').forEach(el => el.style.cursor = 'none');
+        document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'none');
     </script>
 </body>
 </html>

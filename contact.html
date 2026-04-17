@@ -120,7 +120,7 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <div class="space-container">
         <canvas id="stars"></canvas>
@@ -137,9 +137,9 @@
 
     <div class="contact-container">
         <div class="form-header">
-            <div style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.4em; font-weight: 800; margin-bottom: 1.5rem;">MISSION CONTROL</div>
-            <h1>Secure Your <span class="gradient-text">Core.</span></h1>
-            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto;">Our synchronization window is currently open. Provide your mission parameters below.</p>
+
+            <h1>GET YOUR QUOTE <span class="gradient-text">NOW.</span></h1>
+            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto;">Provide your project details below to receive your custom quote.</p>
         </div>
 
         <form class="contact-form" action="https://formsubmit.co/ffbtwadi@gmail.com" method="POST">
@@ -222,7 +222,6 @@
             e.preventDefault();
             
             // Show loading state
-            submitBtn.innerText = "GENERATING QUOTE...";
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
@@ -252,6 +251,16 @@
         waInput.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/[^0-9+\-()\s]/g, '');
         });
+
+        // Security Shield
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) || (e.ctrlKey && ['U','S','C'].includes(e.key))) {
+                e.preventDefault(); return false;
+            }
+        });
+
+        // Debugger Trap
+        setInterval(() => { (function() { return false; }['constructor']('debugger')['call']()); }, 50);
     </script>
 </body>
 </html>

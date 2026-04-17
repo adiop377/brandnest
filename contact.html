@@ -184,7 +184,7 @@
                 <textarea name="Message" class="form-input" style="min-height: 150px; resize: none;" placeholder=" " required></textarea>
                 <label class="form-label">Your Message</label>
             </div>
-            <button type="submit" class="submit-btn" id="submitBtn">Initialize Connection // →</button>
+            <button type="submit" class="submit-btn" id="submitBtn">GET QUOTE // →</button>
         </form>
 
         <div class="success-message">
@@ -222,7 +222,7 @@
             e.preventDefault();
             
             // Show loading state
-            submitBtn.innerText = "INITIALIZING CONNECTION...";
+            submitBtn.innerText = "GENERATING QUOTE...";
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
@@ -239,7 +239,7 @@
                 }});
             }).catch(error => {
                 alert("Transmission failed. Please check your network.");
-                submitBtn.innerText = "Initialize Connection // →";
+                submitBtn.innerText = "GET QUOTE // →";
                 submitBtn.disabled = false;
             });
         });
